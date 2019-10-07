@@ -81,4 +81,7 @@ def brute_force():
 if __name__ == '__main__':
 	brute_force()
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e6e14c14ae892335dbf613c4d6ca3517e765b733
