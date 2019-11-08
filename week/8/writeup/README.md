@@ -14,7 +14,7 @@ Answer the following questions regarding the server executable (for which source
 
 1. How is the per-session administrator password generated? Are there any inherent weaknesses in this implementation?
 
-The password is dynanmically allocated to the heap using calloc. It generates each character using random generation until the end of the password length is reached. Then, the first character is set to zero. The issue with the last statement is that is leads the stack pointer, ESP to be pointed directly to the password in memory. This allows one to use gdb to read the ESP registers and see the password.
+The password is dynanmically allocated to the heap using calloc. It generates each character using random generation until the end of the password length is reached. Then, the first character is set to zero. The issue with the last statement is that is leads the stack pointer, ESP to be pointed directly to the password in memory. This allows one to find the password on the stack when doing a format string attack.
 
 2. Describe two vulnerabilities in this program. Provide specific line numbers and classifications of the vulnerability. Explain potential ramifications as well as ways to avoid these vulnerabilities when writing code.
 
@@ -26,4 +26,4 @@ Use of vulnerable "gets" function on line 68. Additionally, it does not checks o
 
 4. Describe the process you followed to obtain the flag: vulnerabilities exploited, your inputs to the server in a human-readable format, etc. If you create any helper code please include it.
 
-I used a format string attack on the cipher function. I realized that, with the ciper, to print out the elements on the stack, I needed to use %c instead of %p for hex represenations due to the shift by 13. I then checked to see where the entered string would be stored in the stack by entering "AAAA" (which is 41414141 in hex) and appended "%c%c..."  many times to see where the 414141414 appeared. I found that such hex number appeared in the 12th stack variable. Learning this information, I know focused on writing to the stack using %n (which becomes %a in this case).
+I used the cipher function to perform a format string attack using "%c%c%c..." which shifts to %x. I then saw that the ESP offset with the password pointed at will be at the offet %24$c during the printf for cipher. This revealed the password in hex, and I converted it into a string. I then entered the password into the authentication prompt. Once given access, I began to perform a buffer overflow attack; I overflowed the buffer of 32 bits to then overwrite the whitelist arguement in the string compare, allowing me to change what I can execute. I then execute ls to find flag.txt and then did cat flag.txt. ***note I struggled to actually get the flag, but I believe this is the correct process**? 
