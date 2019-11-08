@@ -14,16 +14,13 @@ Answer the following questions regarding the server executable (for which source
 
 1. How is the per-session administrator password generated? Are there any inherent weaknesses in this implementation?
 
-The password string is stored through calloc*.
+The password is dynanmically allocated to the heap using calloc. It generates each character using random generation until the end of the password length is reached. Then, the first character is set to zero. The issue with the last statement is that is leads the stack pointer, ESP to be pointed directly to the password in memory. This allows one to use gdb to read the ESP registers and see the password.
 
 2. Describe two vulnerabilities in this program. Provide specific line numbers and classifications of the vulnerability. Explain potential ramifications as well as ways to avoid these vulnerabilities when writing code.
 
-Line 35: takes in whatever input from user. This is then a problem for line 46, where the printf will take any argeuments, including format options that will print anything from the stack.
+Line 35: takes in whatever input from user. This is then a problem for line 46, where the printf will take any argeuments, including format options that will print anything from the stack. Vulnerable to format string attack. Can be avoided by blacklisting the % character.
 
-Use of vulnerable "gets" function on line 68. Additionally, it does not checks on what the user inputs besides a max buffer size. Easily vulnerable to a buffer overflow attack.
-
-:q:
-
+Use of vulnerable "gets" function on line 68. Additionally, it does not checks on what the user inputs besides a max buffer size. Easily vulnerable to a buffer overflow attack. Can be avoided by using other buffer scanners, since gets has been universally declared dangerous and many other options are available.
 
 3. What is the flag?
 
