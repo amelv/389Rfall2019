@@ -12,6 +12,25 @@ Digital acknowledgement: *PUT YOUR NAME HERE*
 
 ### Part 1 (45 Pts)
 
+
+1.
+
+2. Begins by creating a md5 hash of a desired key-length, then zeroing all bytes but the first two, leaving a key space of 256^2 for the first two bytes. They then hash the two bit key using md5.
+
+
+
+3. 
+
+4. The program first encrypted both the cipher text length and the cipher text before anything as been written to file.
+
+The program uses md5 hashing to create an encryted key in the params struct, with the first 2 bits md5 hashed and the rest (14 bits) are set to zero. The key hash of params is set using the md5 hash of the first 2 bits.
+
+5.The program ensure Integrity by checking that the cipher text hash is equal to the hashed msg variable from the file; after reading through the message, the program hashes it and checks against the sent cipher text. If something is different, then there must have been tampering.
+
+6. The program checks for authenticity by comparing the generated key hash  against the key hash in the file. The key hash is generated using the first two bytes from the md5 hash, and then hashing those again. If they are not equal, then the they are not authenticated. 
+
+7. The vector is stored using memset, and some variable are stored using malloc. This allows
+
 ### Part 2 (45 Pts)
 
 ### Part 3 (10 Pts)
