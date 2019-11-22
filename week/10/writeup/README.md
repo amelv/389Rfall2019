@@ -33,5 +33,7 @@ The program uses md5 hashing to create an encryted key in the params struct, wit
 
 ### Part 2 (45 Pts)
 
+Flag is CMSC389R-{k3y5p4c3_2_sm411}
+
 ### Part 3 (10 Pts)
 
