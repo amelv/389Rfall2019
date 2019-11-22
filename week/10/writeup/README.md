@@ -17,9 +17,7 @@ Digital acknowledgement: *PUT YOUR NAME HERE*
 
 2. Begins by creating a md5 hash of a desired key-length, then zeroing all bytes but the first two, leaving a key space of 256^2 for the first two bytes. They then hash the two bit key using md5.
 
-
-
-3. 
+3. We know the program uses md5 encryption and aes128 encryption.
 
 4. The program first encrypted both the cipher text length and the cipher text before anything as been written to file.
 
@@ -29,7 +27,7 @@ The program uses md5 hashing to create an encryted key in the params struct, wit
 
 6. The program checks for authenticity by comparing the generated key hash  against the key hash in the file. The key hash is generated using the first two bytes from the md5 hash, and then hashing those again. If they are not equal, then the they are not authenticated. 
 
-7. 
+7. The vector is stored in the params struct, which is stored before being full encrypted. This means that the hashes can easily be accessed in memory.
 
 ### Part 2 (45 Pts)
 
