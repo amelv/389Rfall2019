@@ -1,11 +1,11 @@
 # Writeup 10 - Crypto I
 
-Name: *PUT YOUR NAME HERE*
-Section: *PUT YOUR SECTION NUMBER HERE*
+Name: Alex Melvin
+Section: 0102
 
 I pledge on my honor that I have not given or received any unauthorized assistance on this assignment or examination.
 
-Digital acknowledgement: *PUT YOUR NAME HERE*
+Digital acknowledgement: Alex Melvin
 
 
 ## Assignment details
@@ -30,6 +30,12 @@ The program uses md5 hashing to create an encryted key in the params struct, wit
 7. The vector is stored in the params struct, which is stored before being full encrypted. This means that the hashes can easily be accessed in memory.
 
 ### Part 2 (45 Pts)
+
+BRUTE FORCE COMMAND:
+
+```
+while true; ./ledger `writeup/crack`; done
+```
 
 Flag is CMSC389R-{k3y5p4c3_2_sm411}
 
