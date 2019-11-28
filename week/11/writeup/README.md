@@ -20,11 +20,22 @@ Such a Quick Little, website!
 [http://142.93.136.81:5000/](http://142.93.136.81:5000/)
 
 ### Part 2 (60 Pts)
-Complete all 6 levels of:
 
-[https://xss-game.appspot.com](https://xss-game.appspot.com)
+Level 1: We use command injection to insert the XSS payload to be run. By entering 
 
-Produce a writeup. We will not take off points for viewing the source code and/or viewing hints, but we strongly discourage reading online write-ups as that defeats the purpose of the homework.
+```
+<script> alert(1); </script>
+```
+
+into the search bar, we succesfully pass.
+
+Level 2: The previous method does not work when entering into the message input; however, we see that it will render html elements. Thus, we can enter a img tag that will call alert when there is an error:
+
+```
+<img src="x" onerror="alert('XSS');">
+```
+
+Level 3: We can modify the script to determine the tabs of images by leading the window.location to a url that will run out desired paload.
 
 ### Format
 
