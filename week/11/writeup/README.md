@@ -19,6 +19,13 @@ Such a Quick Little, website!
 
 [http://142.93.136.81:5000/](http://142.93.136.81:5000/)
 
+I first noticed the id query for all the different 0days available, so I tried doing some command injection that could hopefully lead to a XSS command attack. I tried doing
+
+```
+“ onblur=javascript:alert(0) “ or “>
+```
+where the id paramter was checked. This lead me to a page saying "ERROR: ATTEMPTED SQL INJECTION DETECTED".
+
 ### Part 2 (60 Pts)
 
 Level 1: We use command injection to insert the XSS payload to be run. By entering 
