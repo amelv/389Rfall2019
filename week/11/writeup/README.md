@@ -1,11 +1,11 @@
 # Writeup 1 - Web I
 
-Name: *PUT YOUR NAME HERE*
-Section: *PUT YOUR SECTION NUMBER HERE*
+Name: Alex Melvin
+Section: 0102
 
 I pledge on my honor that I have not given or received any unauthorized assistance on this assignment or examination.
 
-Digital acknowledgement: *PUT YOUR NAME HERE*
+Digital acknowledgement: Alex Melvin
 
 
 ## Assignment details
@@ -42,7 +42,10 @@ Level 2: The previous method does not work when entering into the message input;
 <img src="x" onerror="alert('XSS');">
 ```
 
-Level 3: We can modify the script to determine the tabs of images by leading the window.location to a url that will run out desired paload.
+Level 3: Since the page will set the img as the input from the url, we can edit to URL to inject js code to call alert:
+```
+0' onerror=alert(1) id='
+```
 
 Level 4: We see that the page take that paramter timer=... to determine how long to wait. I checked to see if I could place a closing ' into the paramter; the code will take the paramter as normal. In the code, it will show:
 
