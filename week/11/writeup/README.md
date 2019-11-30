@@ -54,6 +54,8 @@ Level5: We change the href attribute of the <a> to be
 
 so that the next link will execute the js alert command.
 
+Level 6: Since the web page will load the URL after the frame#, we could change the URL to load a malicious js file. I exchanged /static/gadget.js will google.com/jsapi?callback=foo. 
+
 ### Format
 
 Part 1 and 2 can be answered in bullet form or full, grammatical sentences.
