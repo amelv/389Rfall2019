@@ -44,9 +44,24 @@ Level 2: The previous method does not work when entering into the message input;
 
 Level 3: We can modify the script to determine the tabs of images by leading the window.location to a url that will run out desired paload.
 
-Level 4:
+Level 4: We see that the page take that paramter timer=... to determine how long to wait. I checked to see if I could place a closing ' into the paramter; the code will take the paramter as normal. In the code, it will show:
 
-Level5: We change the href attribute of the <a> to be 
+```
+startTimer(''');
+```
+
+Thus, we can do command injection based on the timer paramter. I use the following parameter to close the timer function call and then call alert:
+
+```
+timer=9') || alert('1
+```
+```
+<img src="/static/loading.gif" onload="startTimer('9') || alert('1');">
+```
+
+We leave alert open since the onload atribure ends with ");"/
+
+Level 5: We change the href attribute of the <a> to be 
  
 ```
 <a href="javascript:alert(0)">Next &gt;&gt;</a>
