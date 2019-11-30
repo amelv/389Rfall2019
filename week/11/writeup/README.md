@@ -44,6 +44,16 @@ Level 2: The previous method does not work when entering into the message input;
 
 Level 3: We can modify the script to determine the tabs of images by leading the window.location to a url that will run out desired paload.
 
+Level 4:
+
+Level5: We change the href attribute of the <a> to be 
+ 
+```
+<a href="javascript:alert(0)">Next &gt;&gt;</a>
+```
+
+so that the next link will execute the js alert command.
+
 ### Format
 
 Part 1 and 2 can be answered in bullet form or full, grammatical sentences.
