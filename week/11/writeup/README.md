@@ -22,7 +22,7 @@ Such a Quick Little, website!
 I first noticed the id query for all the different 0days available, so I tried doing some command injection that could hopefully lead to a XSS command attack. I tried doing
 
 ```
-“ onblur=javascript:alert(0) “ or “>
+1' OR '1==1'>
 ```
 where the id paramter was checked. This lead me to a page saying "ERROR: ATTEMPTED SQL INJECTION DETECTED".
 
